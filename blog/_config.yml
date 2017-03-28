@@ -79,5 +79,7 @@ theme: next
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/Leihub/Leihub.github.io.git
-  branch: master
+  repo: 
+      github: git@github.com:Leihub/Leihub.github.io.git,master
+      coding: git@git.coding.net:leiyohoa/leiyohoa.git,master
+  
