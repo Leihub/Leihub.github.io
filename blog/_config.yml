@@ -33,6 +33,10 @@ sitemap:
 baidusitemap:
   path: baidusitemap.xml
 
+search:
+  path: search.xml
+  field: post
+
 # Writing
 new_post_name: :title.md # File name of new posts
 default_layout: post
