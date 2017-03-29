@@ -309,6 +309,8 @@
         {% endif %}
       {% else %}
         {{ post.content }}
+		
+		人的一切痛苦本质上都是对自己无能的愤怒。
       {% endif  %}
     </div>
 

@@ -5,14 +5,20 @@
 # Site
 title: leiyohoa
 subtitle:
-description: There is not reason for it
+description: 人的一切痛苦本质上都是对自己无能的愤怒。
 author: Lei
 language: zh-Hans
 timezone:
 
+baidu_url_submit:
+ count: 3## 比如3，代表提交最新的三个链接
+ host: leihoyoa.top## 在百度站长平台中注册的域名
+ token: fwOrgoccmirVh9hX## 请注意这是您的秘钥， 请不要发布在公众仓库里!
+ path: baidu_urls.txt## 文本文档的地址， 新链接会保存在此文本文档里
+
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: https://leihoyoa.top/
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -78,8 +84,11 @@ theme: next
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type: git
+- type: git
   repo: 
-      github: git@github.com:Leihub/Leihub.github.io.git,master
-      coding: git@git.coding.net:leiyohoa/myblog.git,master
+      github: https://github.com/Leihub/Leihub.github.io.git,master
+      coding: https://git.coding.net/leiyohoa/leiyohoa.git,master
+- type: baidu_url_submitter   
+
+
   
