@@ -61,15 +61,35 @@ Sitemap: https://leihoyoa.top/baidusitemap.xml
 ![b1](http://onklxoiqv.bkt.clouddn.com/b1.png)
 
 #### 自动推送
-这里的自动推送就是在主题config里面设置baidu_push
+这里的自动推送就是在主题config里面设置baidu_push。本人用的Next主题，其他主题还是采用百度提供的方式做。
 ```
 baidu_push: true
 ```
 
 #### 主动推送
 
-这种推送方式网上经验很多，可以安装一个插件工具。baidu_url_submit。
-
+这种推送方式网上经验很多，可以安装一个插件工具。
+```
+npm install hexo-baidu-url-submit --save
+```
+安装好插件后，在站点配置文件中添加以下代码
+```
+baidu_url_submit:
+  count: 3   ##最近提交的3个链接
+  host: leihoyoa.top   ##你的百度站长工具平台提交的域名
+  token: fwOrgoccmirV  ##你的密钥
+  path: baidu_urls.txt  ## 会自动生成存放最近提交的链接
+```
+**复制该代码的时候最好把注释删除了。**我踩的坑之一。 
+在deploy加一个type：baidu_url_submitter
+```
+deploy:
+- type: git
+  repo: 
+      github: 
+- type: baidu_url_submitter   
+```
+hexo g 一下就会生成baidu_urls.txt文件了。然后就提交了。
 ### 题外话
 title优化
 更改index.swig文件(your-hexo-site\themes\next\layout);
@@ -82,3 +102,5 @@ title优化
 {% block title %} {{ theme.keywords }} - {{ config.title }}{{ theme.description }} {% endblock %}
 ```
 可以做到关键词，网站描述，网站标题显示在标题里。
+
+本人第一次写博客写的不好就将看看，不明白的可以联系我。

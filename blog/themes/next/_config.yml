@@ -42,7 +42,7 @@ menu:
   about: /about
   archives: /archives
   tags: /tags
-  sitemap: /sitemap.xml
+  #sitemap: /sitemap.xml
   #commonweal: /404.html
 
 
@@ -302,7 +302,7 @@ disqus:
 #hypercomments_id:
 
 # Gentie productKey
-#gentie_productKey:
+gentie_productKey: f717d37c6e824a539d180f2536283e50
 
 # changyan
 changyan:

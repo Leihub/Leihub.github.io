@@ -1,6 +1,7 @@
 ---
 date: 2017-03-27 21:23:03
 type: "about"
+comments: false
 ---
 <img src="https://ooo.0o0.ooo/2016/12/25/585f47161c33e.jpg" width="540" height="150">
 

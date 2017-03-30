@@ -5,16 +5,16 @@
 # Site
 title: leiyohoa
 subtitle:
-description: 人的一切痛苦本质上都是对自己无能的愤怒。
+description: 前端|hexo|技术|学习
 author: Lei
 language: zh-Hans
 timezone:
 
 baidu_url_submit:
- count: 3## 比如3，代表提交最新的三个链接
- host: leihoyoa.top## 在百度站长平台中注册的域名
- token: fwOrgoccmirVh9hX## 请注意这是您的秘钥， 请不要发布在公众仓库里!
- path: baidu_urls.txt## 文本文档的地址， 新链接会保存在此文本文档里
+  count: 3 
+  host: leihoyoa.top
+  token: fwOrgoccmirVh9hX
+  path: baidu_urls.txt
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
