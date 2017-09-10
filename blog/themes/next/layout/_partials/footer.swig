@@ -1,29 +1,31 @@
 <div class="copyright" >
+  
   {% set current = date(Date.now(), "YYYY") %}
-  &copy; {% if theme.since and theme.since != current %} {{ theme.since }} - {% endif %}
+  &copy; 
+  2016 -
   <span itemprop="copyrightYear">{{ current }}</span>
   <span class="with-love">
-    <i class="fa fa-{{ theme.authoricon }}"></i>
+    <i class="fa fa-flash"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">{{ config.author }}</span>
+  <span class="author" itemprop="copyrightHolder">Power By - {{ config.author }}</span>
 </div>
 
 {% if theme.copyright %}
 <div class="powered-by">
-  {{ __('footer.powered', '<a class="theme-link" href="https://hexo.io">Hexo</a>') }}
+  {{ __('footer.powered', '<a class="theme-link" href="https://hexo.io">Hexo</a>') }} 
 </div>
 
 <div class="theme-info">
-  {{ __('footer.theme') }} -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.{{ theme.scheme }}
-  </a>
+  {{ __('footer.theme') }} - Leihoyoa
 </div>
 
 
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-本站总访问量 <span id="busuanzi_value_site_pv"></span> &nbsp&nbsp&nbsp
-您是第<span id="busuanzi_value_site_uv"></span>个来到的小伙伴
+<div>
+<i class="fa fa-eye">本站总访问量</i>
+ <span id="busuanzi_value_site_pv"></span> &nbsp&nbsp |&nbsp&nbsp
+<i class="fa fa-user">您是第</i><span id="busuanzi_value_site_uv"></span>个来到的小伙伴
+</div>
 
 <script>
 var birthDay = new Date("11/20/2014");

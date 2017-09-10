@@ -22,11 +22,11 @@
     </span>
 
     {% if not headlessPost %}
-      <header class="post-header">
+      <header class="post-header" >
 
         {# Not to show title for quote posts that do not have a title #}
         {% if not (is_index and post.type === 'quote' and not post.title) %}
-          <{% if theme.seo %}h2{% else %}h1{% endif %} class="post-title" itemprop="name headline">
+          <{% if theme.seo %}h2{% else %}h1{% endif %} class="post-title" itemprop="name headline" style="text-align:center">
             {# Link posts #}
             {% if post.link %}
               {% if post.sticky > 0 %}
@@ -56,14 +56,14 @@
           </{% if theme.seo %}h2{% else %}h1{% endif %}>
         {% endif %}
 
-        <div class="post-meta">
+        <div class="post-meta" style="text-align:center">
           <span class="post-time">
             {% if theme.post_meta.created_at %}
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               {% if theme.post_meta.item_text %}
-                <span class="post-meta-item-text">{{ __('post.posted') }}</span>
+                <span class="post-meta-item-text">Posted on</span>
               {% endif %}
               <time title="{{ __('post.created') }}" itemprop="dateCreated datePublished" datetime="{{ moment(post.date).format() }}">
                 {{ date(post.date, config.date_format) }}
@@ -96,7 +96,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               {% if theme.post_meta.item_text %}
-                <span class="post-meta-item-text">{{ __('post.in') }}</span>
+                <span class="post-meta-item-text">In</span>
               {% endif %}
               {% for cat in post.categories %}
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -112,6 +112,8 @@
               {% endfor %}
             </span>
           {% endif %}
+
+
 
           {% if post.comments %}
             {% if (theme.duoshuo and theme.duoshuo.shortname) or theme.duoshuo_shortname %}
@@ -193,11 +195,32 @@
                  <i class="fa fa-eye"></i>
                </span>
                {% if theme.post_meta.item_text %}
-                 <span class="post-meta-item-text">{{__('post.visitors')}} </span>
+                 <span class="post-meta-item-text">Visitors </span>
                {% endif %}
                  <span class="leancloud-visitors-count"></span>
              </span>
+             <br>
           {% endif %}
+
+                   <span class="post-time">
+                     &nbsp;  &nbsp;
+                  <span class="post-meta-item-icon">
+                   <i class="fa fa-edit"></i>
+                  </span>
+                   <span class="post-meta-item-text">WordCount:</span>
+                  <span class="post-count">{{ wordcount(post.content) }}字</span>
+           
+                 </span>
+    
+                 <span class="post-time">
+                &nbsp; | &nbsp;
+           <span class="post-meta-item-icon">
+             
+           </span>
+           <span class="post-meta-item-text">min2read:</span>
+           <span class="post-count">{{ min2read(post.content) }}分钟</span>
+           
+         </span>
 
           {% if not is_index and theme.busuanzi_count.enable and theme.busuanzi_count.page_pv %}
             <span class="post-meta-divider">|</span>
