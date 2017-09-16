@@ -10,7 +10,7 @@ Disallow: /fonts/
 Disallow: /vendors/
 Disallow: /fancybox/
 
-Sitemap: https://leihoyoa.top/search.xml
+Sitemap: http://leihoyoa.top/search.xml
 
-Sitemap: https://leihoyoa.top/sitemap.xml
-Sitemap: https://leihoyoa.top/baidusitemap.xml
+Sitemap: http://leihoyoa.top/sitemap.xml
+Sitemap: http://leihoyoa.top/baidusitemap.xml

@@ -295,8 +295,8 @@ mathjax:
 
 # Disqus
 disqus:
-  enable: false
-  shortname:
+  enable: true
+  shortname: leihoyoa-1
   count: true
 
 # Hypercomments
