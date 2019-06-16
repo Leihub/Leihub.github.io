@@ -1,0 +1,952 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="sass,">
+
+
+
+
+
+  <link rel="alternate" href="/rss2.xml" title="leihoyoa" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.0">
+
+
+
+
+
+
+<meta name="description" content="sass 学习经验mixin的使用sass 的mixin 宏使用方法:相当于函数，可以传入参数，但是mixin不可大量使用，会造成代码冗余。 未带参数类型12345678910111213@mixin leftbar&amp;#123;	position:absolute;	left:0;	top:0;	bottom:0;	width:100px;&amp;#125;div&amp;#123;	@include left">
+<meta name="keywords" content="sass">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sass学习记录">
+<meta property="og:url" content="http://yomark.club/sass学习记录/index.html">
+<meta property="og:site_name" content="leihoyoa">
+<meta property="og:description" content="sass 学习经验mixin的使用sass 的mixin 宏使用方法:相当于函数，可以传入参数，但是mixin不可大量使用，会造成代码冗余。 未带参数类型12345678910111213@mixin leftbar&amp;#123;	position:absolute;	left:0;	top:0;	bottom:0;	width:100px;&amp;#125;div&amp;#123;	@include left">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-06-14T13:13:33.461Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="sass学习记录">
+<meta name="twitter:description" content="sass 学习经验mixin的使用sass 的mixin 宏使用方法:相当于函数，可以传入参数，但是mixin不可大量使用，会造成代码冗余。 未带参数类型12345678910111213@mixin leftbar&amp;#123;	position:absolute;	left:0;	top:0;	bottom:0;	width:100px;&amp;#125;div&amp;#123;	@include left">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yomark.club/sass学习记录/">
+
+
+
+
+
+  <title> sass学习记录 | leihoyoa </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!-- <a href="https://github.com/Leihub"><img style="position: absolute; top: 100px; left: 0; border: 0;" src="https://camo.githubusercontent.com/567c3a48d796e2fc06ea80409cc9dd82bf714434/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png"></a> -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">leihoyoa</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yomark.club/sass学习记录/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lei">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/dd.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="leihoyoa">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                sass学习记录
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-13T22:46:07+08:00">
+                2017-09-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/sass/" itemprop="url" rel="index">
+                    <span itemprop="name">sass</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+                <span id="busuanzi_container_page_pv">
+                 &nbsp; | &nbsp; 热度&nbsp; <span id="busuanzi_value_page_pv"></span>°C
+                </span>
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/sass学习记录/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="sass学习记录/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/sass学习记录/" class="leancloud_visitors" data-flag-title="sass学习记录">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="sass-学习经验"><a href="#sass-学习经验" class="headerlink" title="sass 学习经验"></a>sass 学习经验</h1><h2 id="mixin的使用"><a href="#mixin的使用" class="headerlink" title="mixin的使用"></a>mixin的使用</h2><p>sass 的mixin 宏使用方法:相当于函数，可以传入参数，但是mixin不可大量使用，会造成代码冗余。</p>
+<h3 id="未带参数类型"><a href="#未带参数类型" class="headerlink" title="未带参数类型"></a>未带参数类型</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">@mixin leftbar&#123;</span><br><span class="line">	position:absolute;</span><br><span class="line">	left:0;</span><br><span class="line">	top:0;</span><br><span class="line">	bottom:0;</span><br><span class="line">	width:100px;</span><br><span class="line">&#125;</span><br><span class="line">div&#123;</span><br><span class="line">	@include leftbar</span><br><span class="line">&#125;</span><br><span class="line">.otherbox&#123;</span><br><span class="line">	@include leftbar;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>生成的css 文件就会把leftbar 的内容放进div的样式中。不会自动合并使用相同样式的代码块。</p>
+<h3 id="带参数类型"><a href="#带参数类型" class="headerlink" title="带参数类型"></a>带参数类型</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@mixin leftbar($width)&#123;</span><br><span class="line">	position:absolute;</span><br><span class="line">	left:0;</span><br><span class="line">	top:0;</span><br><span class="line">	bottom:0;</span><br><span class="line">	width:$width</span><br><span class="line">&#125;</span><br><span class="line">div&#123;</span><br><span class="line">	@include leftbar(200px);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>mixin 的参数可以带多个，当参数过多可用…代替。由于大量的冗余代码，此功能最好适用于带有参数的重用代码块中，写死的代码块使用继承来做。</p>
+<h2 id="类继承的使用"><a href="#类继承的使用" class="headerlink" title="类继承的使用"></a>类继承的使用</h2><p>@extend 如名所示，可以用来继承样式，mixin 的大量使用造成冗余，使用extend 可以做到降低冗余。@extend的用法就相当于设置一个类名.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">.samestyle&#123;</span><br><span class="line">	width:100px;</span><br><span class="line">	height:70px;</span><br><span class="line">	color:red;</span><br><span class="line">&#125;</span><br><span class="line">.otherbox&#123;</span><br><span class="line">	@extend .samestyle</span><br><span class="line">&#125;</span><br><span class="line">.div&#123;</span><br><span class="line">	@extend .samestyle</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>编译出来的css 文件就会合并相同的样式，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.otherbox,div&#123;</span><br><span class="line">	width:100px;</span><br><span class="line">	height:70px;</span><br><span class="line">	color:red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这点就解决了mixin的代码冗余问题。extend 的缺点也存在，由于它是类名，在使用中可能会造成混乱，最后sass也不知道哪个才是声明的类名。</p>
+<h2 id="palceholder占位符的使用"><a href="#palceholder占位符的使用" class="headerlink" title="%palceholder占位符的使用"></a>%palceholder占位符的使用</h2><p>此功能暂时还没有怎么研究，简单来说跟mixin和继承的功能类似。</p>
+<h2 id="sass定义变量"><a href="#sass定义变量" class="headerlink" title="sass定义变量"></a>sass定义变量</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$color:red</span><br><span class="line">div&#123;</span><br><span class="line">	color:$color</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以定义默认变量!default。如果要覆盖默认变量，在默认变量前重写变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$line-height:1.5</span><br><span class="line">$line-height:1.8 !default</span><br><span class="line">div&#123;</span><br><span class="line">	line-height:$line-height</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>此时生成的css 文件的line-height 为1.5</p>
+<h2 id="sass-文件import"><a href="#sass-文件import" class="headerlink" title="sass 文件import"></a>sass 文件import</h2><p>sass 可以导入局部文件不用生成css文件，在文件命名加入下划线，导入的时候省略下划线。</p>
+<h2 id="sass嵌套功能"><a href="#sass嵌套功能" class="headerlink" title="sass嵌套功能"></a>sass嵌套功能</h2><p>sass 的嵌套功能能让我们清楚的看到每个节点的相互关系，但是在方便和清晰的同时却不能忘记这个“好处”能让问题复杂化，在我初识sass的时候就是看上了这个嵌套功能以致于瞎用，滥用。完全没有考虑层级问题。一条路走到底。最后完全陷入混乱，继承关系太过复杂自己也理不清了。在某天系统的学习了一下sass后，也就是在学完后写了这篇学习笔记。<br>看了很多规范说嵌套最好的层级不要超过4层，本人的理解太深的层级会造成代码重叠和继承关系太过复杂，当在某个地方出错后很难定位哪里出问题。而且修改起来也较为麻烦，毕竟各个地方相互影响着。还有就是太深选择器的层次也就越深，在性能方面必然会影响一些，这个性能方面的问题没有深究。但是选择器如果多了对css的权重影响很大，在很多时候可能就是因为优先级权重问题修改样式失败。</p>
+<h2 id="对于sass的使用"><a href="#对于sass的使用" class="headerlink" title="对于sass的使用"></a>对于sass的使用</h2><p>在我看来sass的强大之处应该是在于其减少css的代码，在我平时的工作在此项的使用还是很少，用的比较多的就是px转换到rem 的函数使用。还有用的比较多的是嵌套。在实际写css的时候对代码量的考虑太少，可能还是因为经验不足的原因对于某些常见样式的提取的敏感度不够。在今后的工作中可以试着提取相同代码模块化的形式写入。</p>
+<h2 id="题外话"><a href="#题外话" class="headerlink" title="题外话"></a>题外话</h2><p>就css的问题在移动端上遇到了挺多了。就最近在写一个弹框的时候遇到了移动端穿透问题和定位问题。在我看来写弹框的定位最好还是使用fixed比较合适，看了别人的代码都是用的absolute写定位，在我使用绝对定位时候，由于页面的高度超过屏幕高度，所以在滑在下面的时候弹出弹框此时的定位就会错，如果是采用fixed就会相对屏幕定位每次弹出位置都在屏幕的中间。移动端穿透问题，简单说来就是弹出框后下面的图层还是可以点或者滑动。就解决方案有几种，我采用过两种，都有一点弊端。<br>1.弹出时将body设置成overflow:hidden。 这种方式确实也能解决到下面图层不能点击了，但是对于有bg的body 还是能够滑动，所以此种方案并不可行。<br>2.对弹出层监听touch事件并阻止其冒泡。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dialog.addEventListener(&apos;touchmove&apos;,(e)=&gt;&#123;</span><br><span class="line">	e.preventDefault();</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>这种方案基本能解决我想要的需求不能点击且不能滑动。但是弊端就是如果弹出框的文本过多也不能滑动。在pc的chrome上模拟不能测试，请在真机上测试。</p>
+<hr>
+<h2 id="补充移动端穿透问题"><a href="#补充移动端穿透问题" class="headerlink" title="补充移动端穿透问题"></a>补充移动端穿透问题</h2><p>这次在工作中又写到一个需求需要在弹框里面滑动，所以这里上面讲的两种方案都是不可行的。这里就查到了第三种方案，就是在弹出弹框后给body的定位改成fixed，这样body就不能滑动了，但是缺陷就是滑动条会缺失。再深的需求就是要关闭弹框后滑动条还是在那个位置，就需要监听弹框弹出来时候body的scrolltop，在关闭弹框的事件把这个scrolltop设置上，这样就完美的解决了移动端穿透问题。</p>
+
+		
+		人的一切痛苦本质上都是对自己无能的愤怒。
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/sass/" rel="tag"># sass</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/NodeDNSParse-记录/" rel="next" title="NodeDNSParse 记录">
+                <i class="fa fa-chevron-left"></i> NodeDNSParse 记录
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/express-缓存/" rel="prev" title="express 缓存">
+                express 缓存 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+    <div style="text-align:center;">
+ 		 <button class="btn" id="load-disqus" onclick="disqus.load();">加载 Disqus 评论</button>
+	</div>
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/dd.jpg" alt="Lei">
+          <p class="site-author-name" itemprop="name">Lei</p>
+           
+              <p class="site-description motion-element" itemprop="description">前端|hexo|技术|学习</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/rss2.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Leihub" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/leihoyoa" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#sass-学习经验"><span class="nav-number">1.</span> <span class="nav-text">sass 学习经验</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#mixin的使用"><span class="nav-number">1.1.</span> <span class="nav-text">mixin的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#未带参数类型"><span class="nav-number">1.1.1.</span> <span class="nav-text">未带参数类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#带参数类型"><span class="nav-number">1.1.2.</span> <span class="nav-text">带参数类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类继承的使用"><span class="nav-number">1.2.</span> <span class="nav-text">类继承的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#palceholder占位符的使用"><span class="nav-number">1.3.</span> <span class="nav-text">%palceholder占位符的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sass定义变量"><span class="nav-number">1.4.</span> <span class="nav-text">sass定义变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sass-文件import"><span class="nav-number">1.5.</span> <span class="nav-text">sass 文件import</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sass嵌套功能"><span class="nav-number">1.6.</span> <span class="nav-text">sass嵌套功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对于sass的使用"><span class="nav-number">1.7.</span> <span class="nav-text">对于sass的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题外话"><span class="nav-number">1.8.</span> <span class="nav-text">题外话</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#补充移动端穿透问题"><span class="nav-number">1.9.</span> <span class="nav-text">补充移动端穿透问题</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  
+  &copy; 
+  2016 -
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-flash"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Power By - Lei</span>
+</div>
+
+
+<div class="powered-by">
+  Personal Site 
+</div>
+
+<div class="theme-info">
+  Blog - Leihoyoa
+</div>
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div>
+<i class="fa fa-eye">本站总访问量</i>
+ <span id="busuanzi_value_site_pv"></span> &nbsp&nbsp |&nbsp&nbsp
+<i class="fa fa-user">您是第</i><span id="busuanzi_value_site_uv"></span>个来到的小伙伴
+</div>
+
+<script>
+var birthDay = new Date("11/20/2014");
+var now = new Date();
+var duration = now.getTime() - birthDay.getTime();
+var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
+</script>
+<span id="showDays"></span>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://leihoyoa-1.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+var disqus = {
+  load : function disqus(){
+      if(typeof DISQUS !== 'object') {
+        (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+        $('#load-disqus').html("评论加载中，请确保你有梯子，若评论长时间未加载则你可能翻墙失败...").fadeOut(9000); //加载后移除按钮
+      }
+  }
+}
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+    
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href, 
+        sourceId: "",
+        productKey: "f717d37c6e824a539d180f2536283e50",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("DRLiU9C8GpqnzEJAhBRTDVjV-gzGzoHsz", "sNPQNf9i9hvUo7t86MuqziJw");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  <!-- 背景动画 -->
+  <script type="text/javascript" src="/js/src/particle.js"></script>
+
+</body>
+</html>

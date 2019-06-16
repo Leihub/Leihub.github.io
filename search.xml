@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+    
+    <entry>
+      <title><![CDATA[记2019第一次面试]]></title>
+      <url>http://yomark.club/%E8%AE%B02019%E7%AC%AC%E4%B8%80%E6%AC%A1%E9%9D%A2%E8%AF%95/</url>
+      <content type="html"><![CDATA[<p>工作两年来第一次出去面试，早上八点就出门去公交站挤公交，大概有很长时间没有挤公交，也没有体验过工作日的早高峰挤公交真的挤上公交就觉得后悔。此次出去面试的目的也不是为了真的工作，也是因为两年了一直在舒适圈温水煮青蛙想出去锻炼下自己。见识一下社会的残酷。哈哈哈。大概九点就到了面试地点，在吧台看了一会笔记就上了，开干。<br>一开始面试官就跟我聊了一下我现在的工作，业务和离职原因，我也直言不讳的回答我的原因就是工资太低了，聊了一下我的工作经验，和我们公司从我去那时到现在的技术变化。</p>
+<h3 id="面试题列表"><a href="#面试题列表" class="headerlink" title="面试题列表"></a>面试题列表</h3><p>一来就给一张纸，上面写了大概过程中会问的一些问题，如下：</p>
+<ol>
+<li>html的块元素和内联元素（此问题真的是很基础了，我也不说，面试官当然也没问了）</li>
+<li>css的权重（唯一一道css相关题，我以为会问bfc，也一直准备的是bfc）<br>刚看到这个问题的时候大概脑子没有思考过来在问什么问题，也是平时工作中写css写的太多了，随手就能写那种，思考一会想到问的是内联样式，id选择器 类选择器之间的优先级问题。这个问题，面试官在过程中也没有，大概也是觉得过于基础了。</li>
+<li>前端模块化，模块化的进化过程<br>这个问题我的回答很简单，大概说了3种模块化的方式<br>一、es6中的export import 这个在平时写组件的时候用的基本是这种方式<br>二、commonjs 的 module.export，require  这种方式在node 中使用比较<br>三、seajs 的define 方式<br>回答完我就觉得自己真的很low，只能看到表面，并不知道深层也不知道为什么会有模块化，平时的业务代码写太多很少有思考这种深层问题。</li>
+<li>vue 生命周期和钩子函数</li>
+<li>vue 全家桶（不明白问这个问题的原因是什么，意义何在）</li>
+<li>js闭包是什么，怎么避免使用闭包，闭包的缺点</li>
+<li>promise 怎么使用，应用场景<br>我的回答：promise 是es6中的语法，为了解决异步问题。然后拓展了一下异步的历史，由于浏览器是单进程多线程，很多操作都是异步的，最开始的异步是用callback 实现，然后ed6出来后用promise，后来有async await 方式。然后谈到async 是类一种写同步代码来实现异步功能。</li>
+<li><p>写一个类，有自己的公共方法，私有方法，私有属性<br>我的回答说用typescript 中直接写，因为typescript 中已经有个这些语法了，private public 等相关关键词，然后面试官说让用es5方式写，这里我的面试的时候把私有属性和静态属性没有理解清楚，把静态属性理解成了私有属性。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function Person()&#123;</span><br><span class="line">    this.name = &apos;lei&apos; //共有属性能被实例拥有</span><br><span class="line">    var age = 12 // 私有属性 </span><br><span class="line">    var walk = function()&#123;</span><br><span class="line">        console.log(&apos;walk&apos;) // 私有方法</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">Person.prototype.eat = function()&#123; //共有方法</span><br><span class="line">    console.log(&apos;eat&apos;) </span><br><span class="line">&#125;</span><br><span class="line">Person.last = &apos;y&apos; //静态属性 能够被子类继承</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>描述从输入url到浏览器展示页面的整个流程经历哪些步骤</p>
+</li>
+</ol>
+<h3 id="相关解答"><a href="#相关解答" class="headerlink" title="相关解答"></a>相关解答</h3><h4 id="前端模块化及历史"><a href="#前端模块化及历史" class="headerlink" title="前端模块化及历史"></a>前端模块化及历史</h4><p>前端模块可以把复杂的功能分开，增加复用性减小代码耦合度。通过只暴露接口不相互影响，污染。<br>发展历史：</p>
+<ol>
+<li>function 函数，编写各个功能的函数实现模块化，但是坏处可能会有重复命名，函数被重写，全局变量过多。</li>
+<li><p>命名空间模式，简单对象封装。直接暴露内部函数给外部，外部可以直接修改内部数据。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var module = &#123;</span><br><span class="line">    data:&apos;12&apos;,</span><br><span class="line">    log:function()&#123;</span><br><span class="line">        console.log(this.data)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">module.data = 1234</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>利用闭包，立即执行函数,可以防止外部函数直接内部数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">(function(window)&#123;</span><br><span class="line">    var data = &apos;123&apos;</span><br><span class="line">    function log()&#123;</span><br><span class="line">        console.log(data)</span><br><span class="line">    &#125;</span><br><span class="line">    window.myModule = &#123;log&#125;</span><br><span class="line">&#125;)(window)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>以上模块化用过多的script 标签引入，且必须遵循一定的顺序引入。</p>
+<p>模块化规范：</p>
+<ol>
+<li>commonjs规范:语法使用module.exports = xxx ,require 。暴露的export 是一个对象,在运行过程中加载，是同步加载，适合于服务端。加载的文件是输出值的拷贝。</li>
+<li>AMD 规范:语法使用define([‘xxx.js’],function(){return xxx})，require([‘xxx.js’],function(m1){}) 是异步加载模块，适合于浏览器端. 代表库 requirejs</li>
+<li>CMD 规范：结合commonjs 和 AMD 规范。使用的时候才加载模块，代表库 seajs<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">定义导出依赖</span><br><span class="line">define(function(require,exports,module)&#123;</span><br><span class="line">    var a = reqiure(&apos;xxx.js&apos;)  //引入其他依赖</span><br><span class="line">    funtion log()&#123;&#125;</span><br><span class="line">    module.exports = &#123;log&#125;  //导出依赖</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">引入依赖</span><br><span class="line">define(function(require)&#123;</span><br><span class="line">    var m1 = require(&apos;xxx.js&apos;)</span><br><span class="line">    m1.log()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>CMD 和 AMD 区别： AMD 需要一开始就引入模块，CMD 可以就近引入模块，在需要的时候引入。</p>
+<ol start="4">
+<li>es6 ，语法export import ，在编译的时候就确定好模块关系了，es6 的输出值是引用值。会改变依赖的内部数据。</li>
+</ol>
+<h3 id="描述从输入url到浏览器展示页面的整个流程经历哪些步骤"><a href="#描述从输入url到浏览器展示页面的整个流程经历哪些步骤" class="headerlink" title="描述从输入url到浏览器展示页面的整个流程经历哪些步骤"></a>描述从输入url到浏览器展示页面的整个流程经历哪些步骤</h3><ol>
+<li>解析url 简称dns，获取到ip地址</li>
+<li>浏览器开启网络请求线程发出http请求</li>
+<li>服务端接收到请求发出响应</li>
+<li>浏览器拿到html 解析html 文件</li>
+<li>再次发出静态资源请求</li>
+<li>拿到css js 图片等相关资源，生成渲染树，展示页面</li>
+</ol>
+]]></content>
+      
+        <categories>
+            
+            <category> 面试,日记 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 日记 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Hello World]]></title>
+      <url>http://yomark.club/hello-world/</url>
+      <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[遇坑记录]]></title>
+      <url>http://yomark.club/%E9%81%87%E5%9D%91%E8%AE%B0%E5%BD%95/</url>
+      <content type="html"><![CDATA[<p>最近的工作很忙，身心也很疲惫。算是真正的明白什么叫工作，什么叫恶心人。最近的工作都是在写移动端页面，其中也是遇到了很多坑。主要有其下几点。</p>
+<ul><br>    <li>移动端穿透问题</li><br>    <li>按钮绑定事件内存泄露</li><br>    <li>css3 动画在真机上卡顿</li><br>    <li>‘img’标签下面空白</li><br></ul>
+
+<h2 id="移动端穿透问题"><a href="#移动端穿透问题" class="headerlink" title="移动端穿透问题"></a>移动端穿透问题</h2><p>在上一篇将sass的时候就写了移动端穿透的解决方案，在实际共总工作中，我采用了第三种方案，为了实现需求需要把滚动条恢复在弹框出现之前，所以就用了scrollingElement.在chrome上模拟很正常，然后真机上测试就出现了问题。在使用这种方案之前就知道了这个api的兼容性可能会存在问题，所以就能直接锁定是它的兼容性问题，去查资料知道安卓上完全不支持。在此就只好使用它的polyfill(兼容性不好使用一个polyfill不是很正常的事吗，为此被人夸复制粘贴很屌，我也是有点醉的)。</p>
+<h2 id="按钮绑定事件的内存泄露"><a href="#按钮绑定事件的内存泄露" class="headerlink" title="按钮绑定事件的内存泄露"></a>按钮绑定事件的内存泄露</h2><p>在写公司的页面弹框的时候我有一个需求是在某个时刻弹出一个弹窗A，然后点击这个A的按钮跳出下一个弹窗B。在A窗谈出来的时候判断其需要出现的东西，分为两种。<br>1.第一种是不需要跳出下一个B的。<br>2.第二种是需要跳出B的。<br>他们两个的按钮都是同一个class名字，所以相当于绑定事件的元素不变，而是改变了里面的内容，代码如下。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">if(item === 8)&#123;</span><br><span class="line">	$(&apos;.btn&apos;).click(function()&#123;</span><br><span class="line">		closeModle(A)</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;else&#123;</span><br><span class="line">	$(&apos;.btn&apos;).click(()&#123;</span><br><span class="line">		closeModle(A)</span><br><span class="line">		openModle(B)</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这里出现的问题就是在弹出A之后，如何是item != 8 的情况下，弹出A并能成功跳出B，但是关闭B后再出现 item === 8 的情况，点击按钮后还是能弹出B。因为以前也从来没遇到过这个问题，所以去请教别人，奈何别人也不想告诉我，所以此事等了很久后才被解决。别人开始一直觉得是我单独给按钮绑定事件并在回调函数中判断item 的值来做出对应事件的问题。其实最后这个问题的主要原因就是内存泄漏，在给btn绑定事件后一直没有移除，所以他有一个弹B的动作在内存中，所以当B弹出后，if 无论是什么都会跳出B来。在这里就需要移除btn的click事件。jq中有unbind().我承认我在一个按钮的click事件中判断item 是有问题的，这样不易于移除这个按钮绑定事件。所以这个问题记住了。</p>
+<h2 id="css3-动画真机上卡顿"><a href="#css3-动画真机上卡顿" class="headerlink" title="css3 动画真机上卡顿"></a>css3 动画真机上卡顿</h2><p>这个问题的出现也是在没有工作经验是不行的，我本身原来就很少写动画，这次需要在页面中实现一个全屏高度的漂浮物层浮动，这里就用了@keyfram做动画，在chrome上面运行也是很顺畅。但是在手机上，就出现了卡顿，本身这个页面需要加载的图片也很多，还需要运行这个动画。手机渲染完全跟不上，所以就造成了十分卡顿，上下滑动也不灵敏。解决方案是强制开启css3的GPU渲染。使用-webkit-transform:translateZ(0)，将这个设置为3d渲染，但是设置为0，所以并没有真的3d，但是浏览器却开启了GPU渲染模式。</p>
+<h2 id="‘img’标签下面空白"><a href="#‘img’标签下面空白" class="headerlink" title="‘img’标签下面空白"></a>‘img’标签下面空白</h2><p>今天写页面遇到了这个神奇的问题，在banner图和下面的div之间有一小块空白区域，不属于banner也不属于div，我当时就很纳闷了，这个空白区域到底是怎么产生的。F12 一看banner的img 继承了哪些样式，基本没给它写任何会造成这方面的样式，然后看见从body那里继承了line-height，把line-height勾掉好像空白会改变一下。这样就能说明是这方面的问题了。通过google之后发现某大神说的是，img属于inline标签，同样会有font-size和line-height属性，在把font-size设置为0，就能解决这个问题。然后我采用的是设置vertical-aglin的方式，由于这个的默认是基于基线所以会有问题，设置好vertical-aglin同样可以达到目的。</p>
+<p>以上就是最近在工作中遇到的主要问题，移动端的兼容问题真的是没有经验随时都是踩着坑前进的。这里随便吐槽一下，移动端竟然不支持es6，我也是很尴尬的啊，css3 都兼容的挺好的，es6却不兼容。</p>
+<hr>
+<p>更新补充<br>今天又在工作中遇到了一个以前没有考虑过的坑。也只能说是我自己对性能方面考虑的太少了。辣鸡代码：用动画切换来回一个div的背景图片做成一个开灯的效果。估计不考虑性能问题的最简单的方式就是直接替换背景图片，由于这个代码是一开始就写好的后来ui加的一个需求，所以就直接这样修改了。结果今天在线上测试环境测试的时候，由于图片太大加载不出来，然后以前也一直没有做过这方面的东西，所以被人说了。这样写的弊端就是每秒在改变背景图片在线上就是每秒请求两张图片，造成服务器压力过大。最后的解决方案是，做两个div在一个地方，一个div来回切换隐藏，在这里也补充了以前不知道的切换隐藏的方式。</p>
+<h2 id="切换css-隐藏的方式"><a href="#切换css-隐藏的方式" class="headerlink" title="切换css 隐藏的方式"></a>切换css 隐藏的方式</h2><p>1。display:none.最简单也是用的最普遍的方式。<br>2.opacity 用过改变透明度达到视觉上的隐藏<br>3.visibility:hidden 改变可见和不可见<br>4.position:absolute left:-9999 top:-9999  这个方式用的很少。<br>平时用的最多的方式就是第一种，所以对这方面的问题又补充了。如果遇到更多问题还会继续补充。</p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> css </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[express 缓存]]></title>
+      <url>http://yomark.club/express-%E7%BC%93%E5%AD%98/</url>
+      <content type="html"><![CDATA[<p>本文主要是记录做这个小实现遇到的问题和总结。<br>先说一下实现思路，在这里使用了npm的包（”memory-cache”）来做缓存，express做路由。重写了res.send,把设置缓存写进res.send 里面。完成send后把中间件转交给下一个中间件。这里缓存了整个页面。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">var mcache = require(&quot;memory-cache&quot;)</span><br><span class="line">var cache = function(duration)&#123;</span><br><span class="line">    return function(req,res,next)&#123;</span><br><span class="line">        var key = req.originUrl || req.url</span><br><span class="line">        var mcachebody = mcache.get(key)</span><br><span class="line">        if(mcachebody)&#123;</span><br><span class="line">            res.send(mcachebody)</span><br><span class="line">            return</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            res.sendResponse = res.send</span><br><span class="line">            res.send = (body)=&gt;&#123;</span><br><span class="line">                mcache.put(key,body,duration*1000) // duration 设置成多少秒</span><br><span class="line">                res.sendResponse(body)</span><br><span class="line">            &#125;</span><br><span class="line">            next()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>核心设置缓存就是以上代码，在实际使用中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">app.get(&quot;/&quot;,cache(10),(req,res)=&gt;&#123;</span><br><span class="line">    setTimeout(()=&gt;&#123;</span><br><span class="line">        res.render(&quot;index&quot;,&#123;name:&quot;hello&quot;,title:&quot;sb&quot;,date:new Date()&#125;)</span><br><span class="line">    &#125;,2000)</span><br><span class="line">&#125;)</span><br><span class="line">app.get(&apos;/user/:id&apos;,cache(10),(req,res)=&gt;&#123;</span><br><span class="line">    setTimeout(()=&gt;&#123;</span><br><span class="line">        if(req.params.id ==1)&#123;</span><br><span class="line">            res.json(&#123;id:1,name:&quot;hi&quot;&#125;)</span><br><span class="line">        &#125;else if(req.params.id ==2)&#123;</span><br><span class="line">            res.json(&#123;id:2,name:&quot;lei&quot;&#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,1000)</span><br><span class="line">&#125;)</span><br><span class="line">app.use((req,res)=&gt;&#123;</span><br><span class="line">    res.status(404).send(&quot;not found&quot;)</span><br><span class="line">&#125;)</span><br><span class="line">app.listen(3000,()=&gt;&#123;</span><br><span class="line">    console.log(&quot;run on 3000 port&quot;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>在浏览器中打开localhost:3000，在2s后响应成功，设置了10s的缓存时间，10s内刷新整个页面都不会有改变（包括请求id） “localhost:3000/user/2” ，状态码也从200显示为304.这里顺便把状态码304搞懂了。</p>
+<hr>
+<p>在第一次写这篇文的时候当时不知道还有一个缓存的状态码是200，后来去搞清楚了，还有一种状态码200，直接从本地浏览器的缓存，并没有跟后台发起请求，而304是发起请求询问后台这个缓存有效否，有效就直接从浏览器那里获得。关于http方面的内容本人没有很深究过，理解也较浅，这些也是自己所学习到的东西。</p>
+<hr>
+<p>在实现的过程中主要遇到的问题就是http参数的请求解析没有搞清楚。解析http参数的方式主要是有以下几种。</p>
+<ol>
+<li>get请求查询类： /user?id=1;这里用query去解析参数出来。res.query.id //1</li>
+<li>get 路由类：本例中使用的 /user/2 ;param解析 res.param（参数）,也可以用res.params.参数,params的能力更强，可以解析更为复杂的路径。<h3 id="res-send"><a href="#res-send" class="headerlink" title="res.send()"></a>res.send()</h3>用于向浏览器发送一个响应信息，如果是String则自动设置为content/type为text/html,如果是对象或者数组则设置为一个json对象，如果是数字就自动设置一个响应体  res.send(200) 返回一个OK。</li>
+</ol>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> node </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[sass学习记录]]></title>
+      <url>http://yomark.club/sass%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</url>
+      <content type="html"><![CDATA[<h1 id="sass-学习经验"><a href="#sass-学习经验" class="headerlink" title="sass 学习经验"></a>sass 学习经验</h1><h2 id="mixin的使用"><a href="#mixin的使用" class="headerlink" title="mixin的使用"></a>mixin的使用</h2><p>sass 的mixin 宏使用方法:相当于函数，可以传入参数，但是mixin不可大量使用，会造成代码冗余。</p>
+<h3 id="未带参数类型"><a href="#未带参数类型" class="headerlink" title="未带参数类型"></a>未带参数类型</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">@mixin leftbar&#123;</span><br><span class="line">	position:absolute;</span><br><span class="line">	left:0;</span><br><span class="line">	top:0;</span><br><span class="line">	bottom:0;</span><br><span class="line">	width:100px;</span><br><span class="line">&#125;</span><br><span class="line">div&#123;</span><br><span class="line">	@include leftbar</span><br><span class="line">&#125;</span><br><span class="line">.otherbox&#123;</span><br><span class="line">	@include leftbar;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>生成的css 文件就会把leftbar 的内容放进div的样式中。不会自动合并使用相同样式的代码块。</p>
+<h3 id="带参数类型"><a href="#带参数类型" class="headerlink" title="带参数类型"></a>带参数类型</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@mixin leftbar($width)&#123;</span><br><span class="line">	position:absolute;</span><br><span class="line">	left:0;</span><br><span class="line">	top:0;</span><br><span class="line">	bottom:0;</span><br><span class="line">	width:$width</span><br><span class="line">&#125;</span><br><span class="line">div&#123;</span><br><span class="line">	@include leftbar(200px);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>mixin 的参数可以带多个，当参数过多可用…代替。由于大量的冗余代码，此功能最好适用于带有参数的重用代码块中，写死的代码块使用继承来做。</p>
+<h2 id="类继承的使用"><a href="#类继承的使用" class="headerlink" title="类继承的使用"></a>类继承的使用</h2><p>@extend 如名所示，可以用来继承样式，mixin 的大量使用造成冗余，使用extend 可以做到降低冗余。@extend的用法就相当于设置一个类名.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">.samestyle&#123;</span><br><span class="line">	width:100px;</span><br><span class="line">	height:70px;</span><br><span class="line">	color:red;</span><br><span class="line">&#125;</span><br><span class="line">.otherbox&#123;</span><br><span class="line">	@extend .samestyle</span><br><span class="line">&#125;</span><br><span class="line">.div&#123;</span><br><span class="line">	@extend .samestyle</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>编译出来的css 文件就会合并相同的样式，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.otherbox,div&#123;</span><br><span class="line">	width:100px;</span><br><span class="line">	height:70px;</span><br><span class="line">	color:red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这点就解决了mixin的代码冗余问题。extend 的缺点也存在，由于它是类名，在使用中可能会造成混乱，最后sass也不知道哪个才是声明的类名。</p>
+<h2 id="palceholder占位符的使用"><a href="#palceholder占位符的使用" class="headerlink" title="%palceholder占位符的使用"></a>%palceholder占位符的使用</h2><p>此功能暂时还没有怎么研究，简单来说跟mixin和继承的功能类似。</p>
+<h2 id="sass定义变量"><a href="#sass定义变量" class="headerlink" title="sass定义变量"></a>sass定义变量</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$color:red</span><br><span class="line">div&#123;</span><br><span class="line">	color:$color</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以定义默认变量!default。如果要覆盖默认变量，在默认变量前重写变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$line-height:1.5</span><br><span class="line">$line-height:1.8 !default</span><br><span class="line">div&#123;</span><br><span class="line">	line-height:$line-height</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>此时生成的css 文件的line-height 为1.5</p>
+<h2 id="sass-文件import"><a href="#sass-文件import" class="headerlink" title="sass 文件import"></a>sass 文件import</h2><p>sass 可以导入局部文件不用生成css文件，在文件命名加入下划线，导入的时候省略下划线。</p>
+<h2 id="sass嵌套功能"><a href="#sass嵌套功能" class="headerlink" title="sass嵌套功能"></a>sass嵌套功能</h2><p>sass 的嵌套功能能让我们清楚的看到每个节点的相互关系，但是在方便和清晰的同时却不能忘记这个“好处”能让问题复杂化，在我初识sass的时候就是看上了这个嵌套功能以致于瞎用，滥用。完全没有考虑层级问题。一条路走到底。最后完全陷入混乱，继承关系太过复杂自己也理不清了。在某天系统的学习了一下sass后，也就是在学完后写了这篇学习笔记。<br>看了很多规范说嵌套最好的层级不要超过4层，本人的理解太深的层级会造成代码重叠和继承关系太过复杂，当在某个地方出错后很难定位哪里出问题。而且修改起来也较为麻烦，毕竟各个地方相互影响着。还有就是太深选择器的层次也就越深，在性能方面必然会影响一些，这个性能方面的问题没有深究。但是选择器如果多了对css的权重影响很大，在很多时候可能就是因为优先级权重问题修改样式失败。</p>
+<h2 id="对于sass的使用"><a href="#对于sass的使用" class="headerlink" title="对于sass的使用"></a>对于sass的使用</h2><p>在我看来sass的强大之处应该是在于其减少css的代码，在我平时的工作在此项的使用还是很少，用的比较多的就是px转换到rem 的函数使用。还有用的比较多的是嵌套。在实际写css的时候对代码量的考虑太少，可能还是因为经验不足的原因对于某些常见样式的提取的敏感度不够。在今后的工作中可以试着提取相同代码模块化的形式写入。</p>
+<h2 id="题外话"><a href="#题外话" class="headerlink" title="题外话"></a>题外话</h2><p>就css的问题在移动端上遇到了挺多了。就最近在写一个弹框的时候遇到了移动端穿透问题和定位问题。在我看来写弹框的定位最好还是使用fixed比较合适，看了别人的代码都是用的absolute写定位，在我使用绝对定位时候，由于页面的高度超过屏幕高度，所以在滑在下面的时候弹出弹框此时的定位就会错，如果是采用fixed就会相对屏幕定位每次弹出位置都在屏幕的中间。移动端穿透问题，简单说来就是弹出框后下面的图层还是可以点或者滑动。就解决方案有几种，我采用过两种，都有一点弊端。<br>1.弹出时将body设置成overflow:hidden。 这种方式确实也能解决到下面图层不能点击了，但是对于有bg的body 还是能够滑动，所以此种方案并不可行。<br>2.对弹出层监听touch事件并阻止其冒泡。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dialog.addEventListener(&apos;touchmove&apos;,(e)=&gt;&#123;</span><br><span class="line">	e.preventDefault();</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>这种方案基本能解决我想要的需求不能点击且不能滑动。但是弊端就是如果弹出框的文本过多也不能滑动。在pc的chrome上模拟不能测试，请在真机上测试。</p>
+<hr>
+<h2 id="补充移动端穿透问题"><a href="#补充移动端穿透问题" class="headerlink" title="补充移动端穿透问题"></a>补充移动端穿透问题</h2><p>这次在工作中又写到一个需求需要在弹框里面滑动，所以这里上面讲的两种方案都是不可行的。这里就查到了第三种方案，就是在弹出弹框后给body的定位改成fixed，这样body就不能滑动了，但是缺陷就是滑动条会缺失。再深的需求就是要关闭弹框后滑动条还是在那个位置，就需要监听弹框弹出来时候body的scrolltop，在关闭弹框的事件把这个scrolltop设置上，这样就完美的解决了移动端穿透问题。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> sass </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> sass </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[NodeDNSParse 记录]]></title>
+      <url>http://yomark.club/NodeDNSParse-%E8%AE%B0%E5%BD%95/</url>
+      <content type="html"><![CDATA[<p>本个小日志主要记录一个node小项目，查询域名的ip地址。主要用到的node 模块有FS,URL,DNS，Query Strings</p>
+<h2 id="FS"><a href="#FS" class="headerlink" title="FS"></a>FS</h2><pre><code>fs 主要用于读取文件渲染静态页面,读取文件函数代码如下。
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function readFileHandle(req,res,filename,type)&#123;</span><br><span class="line"> fs.readFile(filename,function(err,type)&#123;</span><br><span class="line">    if(err)&#123;</span><br><span class="line">        //这里有一个错误处理函数</span><br><span class="line">        utils.HandleError(err,type)</span><br><span class="line">        res.writeHead(404)</span><br><span class="line">        res.end(&quot;404&quot;)</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        \\....</span><br><span class="line">    &#125;</span><br><span class="line"> &#125;)</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>static 文件放在public目录下，例如读取index文件.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">exports.index = function()&#123;</span><br><span class="line">    var pathname = &quot;../../public/html/index.html&quot;</span><br><span class="line">    var filename = path.join(__dirname,pathname)</span><br><span class="line">    readFile.readFileHandle(req,res,filename,&quot;welcome to homepage&quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h2><p>URL 主要用到它的解析功能获取到查询参数.在前端页面中发送请求会传入hostname 参数到服务来，url获取这个参数去完成后面的动作。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var url = url.parse(req.url).query</span><br></pre></td></tr></table></figure></p>
+<p>这里就直接获取到包含参数的那段代码,下面是URL的组成，在这里我们获取的就是query那段，接下里就获取的query传入到querystring处理获得从前端传过来的houstname参数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">┌─────────────────────────────────────────────────────────────────────────────┐</span><br><span class="line">│                                    href                                     │</span><br><span class="line">├──────────┬┬───────────┬─────────────────┬───────────────────────────┬───────┤</span><br><span class="line">│ protocol ││   auth    │      host       │           path            │ hash  │</span><br><span class="line">│          ││           ├──────────┬──────┼──────────┬────────────────┤       │</span><br><span class="line">│          ││           │ hostname │ port │ pathname │     search     │       │</span><br><span class="line">│          ││           │          │      │          ├─┬──────────────┤       │</span><br><span class="line">│          ││           │          │      │          │ │    query     │       │</span><br><span class="line">&quot;  http:   // user:pass @ host.com : 8080   /p/a/t/h  ?  query=string   #hash &quot;</span><br><span class="line">│          ││           │          │      │          │ │              │       │</span><br><span class="line">└──────────┴┴───────────┴──────────┴──────┴──────────┴─┴──────────────┴───────┘</span><br></pre></td></tr></table></figure></p>
+<h2 id="Query-Strings"><a href="#Query-Strings" class="headerlink" title="Query Strings"></a>Query Strings</h2><p>将查询参数解析成一个对象用来直接获取到hostname传入到DNS的解析中，这里的返回会是一个对象。假设传入的是hostname=”weibo.come”&amp;&amp;a=1.它会被解析成<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    hostname:&quot;weibo.com&quot;,</span><br><span class="line">    a:1,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var query = query_string.parse(url)</span><br></pre></td></tr></table></figure>
+<h2 id="DNS"><a href="#DNS" class="headerlink" title="DNS"></a>DNS</h2><pre><code>DNS用一个resolve4 API 可直接解析获得ip地址.dns 接收到前面的query 对象。
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">dns.resolve4(query[&apos;hostname&apos;],function(err,addresses)&#123;</span><br><span class="line">    if(err)&#123;</span><br><span class="line">        utils.HandleError(err,&quot;URL parse err&quot;)</span><br><span class="line">        res.writeHead(404)</span><br><span class="line">        res.end(&quot;错误&quot;)</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        res.writeHead(200)</span><br><span class="line">        res.end(JSON.stringify(addresses)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="常规模块-router做路由"><a href="#常规模块-router做路由" class="headerlink" title="常规模块 router做路由"></a>常规模块 router做路由</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">exports.router = function(req,res)&#123;</span><br><span class="line">    var url = url.parse(req.url)</span><br><span class="line">    var pathname = url.pathname</span><br><span class="line">    </span><br><span class="line">    utils.record(&quot;PATH:&quot; + pathname)</span><br><span class="line">    switch(pathname)&#123;</span><br><span class="line">        case &apos;/dns&apos;:</span><br><span class="line">            DNSService.dnsparse(req,res,pathname)</span><br><span class="line">            break;</span><br><span class="line">        case &apos;&apos;:</span><br><span class="line">        case &apos;/&apos;:</span><br><span class="line">        case &apos;/index&apos;:</span><br><span class="line">            readFile.index(req,res)</span><br><span class="line">            break;</span><br><span class="line">        default:</span><br><span class="line">            readFile.static(req,res,pathname)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个小项目的主要思路就是这样，难点就是api 的使用，需要参照接口文档来做。后期看能不能用express 重构。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> node </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> node </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[vue双向绑定的基本方法]]></title>
+      <url>http://yomark.club/vue%E6%95%B0%E6%8D%AE%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A/</url>
+      <content type="html"><![CDATA[<hr>
+<p>vue的数据实现双向绑定主要是使用Object.defineProperty。本文所写的内容都是在拜读了某个大神的博文记录一下。<br>这里是用set 更新model和view层。寻找一个需要绑定的属性，将绑定属性的值传给内部class 的key 根据key来查找data[key]. 实现双向的核心就是监听input 实时更新view层。</p>
+<ol>
+<li>查找到绑定的属性</li>
+<li>实施数据的绑定</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">   class MVVM &#123;</span><br><span class="line">     constructor(options) &#123;</span><br><span class="line">         this.input = options.input</span><br><span class="line">         this.output = options.output</span><br><span class="line">         let data = this.data = options.data</span><br><span class="line"></span><br><span class="line">         let key = null</span><br><span class="line"></span><br><span class="line">         Array.from(this.input.attributes).forEach((attr) =&gt; &#123;</span><br><span class="line">             if (attr.name == &quot;model&quot;) &#123;</span><br><span class="line">                 key = attr.value</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;)</span><br><span class="line"></span><br><span class="line">         if (key &amp;&amp; data[key]) &#123;</span><br><span class="line">             let value = data[key];</span><br><span class="line">             this.input.value = value;</span><br><span class="line">             this.output.textContent = value</span><br><span class="line">            //开始绑定数据</span><br><span class="line">             this.defineReactive(data, key, value)</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">     defineReactive(data, key, val) &#123;</span><br><span class="line">     //监听输入数据</span><br><span class="line">         this.input.addEventListener(&apos;input&apos;, (e) =&gt; &#123;</span><br><span class="line">             this.data[key] = e.target.value;</span><br><span class="line">         &#125;, false)</span><br><span class="line">      </span><br><span class="line">         Object.defineProperty(data, key, &#123;</span><br><span class="line">             enumerable: true,</span><br><span class="line">             configurable: false,</span><br><span class="line">             get: () =&gt; val,</span><br><span class="line">             set: (newVal) =&gt; &#123;</span><br><span class="line">                 if (newVal == val) &#123;</span><br><span class="line">                     return</span><br><span class="line">                 &#125;</span><br><span class="line">                 val = newVal</span><br><span class="line">                 this.notify(newVal)</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;)</span><br><span class="line">     &#125;</span><br><span class="line">     //视图更新</span><br><span class="line">     notify(val)&#123;</span><br><span class="line">       this.output.textContent = val</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      
+        <categories>
+            
+            <category> vue </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> vue </tag>
+            
+            <tag> javascript </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[浅谈原生js的ajax学习]]></title>
+      <url>http://yomark.club/%E6%B5%85%E8%B0%88%E5%8E%9F%E7%94%9Fjs%E7%9A%84ajax%E5%AD%A6%E4%B9%A0/</url>
+      <content type="html"><![CDATA[<p>写这篇谈ajax的文章主要是为了记录在很久不写ajax，出了一个很低级的问题其本质还是自己没有把ajax搞的很明白。</p>
+<h3 id="ajax是用来干什么的"><a href="#ajax是用来干什么的" class="headerlink" title="ajax是用来干什么的"></a>ajax是用来干什么的</h3><p>简单说ajax就是用来与后台进行交互而不用刷新整个页面，而ajax的实现主要是靠XHR对象实现。</p>
+<h3 id="XHR对象"><a href="#XHR对象" class="headerlink" title="XHR对象"></a>XHR对象</h3><p>XHR是XMLHttpRequest的缩写。而要实现ajax主要就是操作这个XHR对象，在IE版本之下并不支持此对象而是ActiveXObject。再ie7下就是ActiveX了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">function creatXHR()&#123;</span><br><span class="line">	if(typeof XMLHttpRequest !=&apos;undefined&apos;)&#123;</span><br><span class="line">		return new XMLHttpRequest;</span><br><span class="line">	&#125;else if(typeof ActiveXObject !=&apos;undefined&apos;)&#123;</span><br><span class="line">		if(typeof arguments.callee.activeXString != &apos;string&apos;)&#123;</span><br><span class="line">			var versions =[&apos;MSXML2.XMLHttp.6.0&apos;,&apos;MSXML2.XMLHttp3.0&apos;,&apos;MSXML2.XMLHttp&apos;],</span><br><span class="line">			i,len;</span><br><span class="line">			for(i=0,len=versions.length,i&lt;len,i++)&#123;</span><br><span class="line">				try&#123;</span><br><span class="line">					new ActiveXObject(versions[i]);</span><br><span class="line">					arguments.callee.activeXString = version[i];</span><br><span class="line">					break;</span><br><span class="line">				&#125;catch(ex)&#123;</span><br><span class="line">					//</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		return new ActiveXObject(arguments.callee.activeXString);</span><br><span class="line">		</span><br><span class="line">	&#125;else&#123;</span><br><span class="line">		throw new Error(&quot;NO XHR object available&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>以上代码就是在兼容性更好的创建一个XHR对象。<br>接下来就是要准备发送请求给服务器了，那么会用到xhr的open方法。</p>
+<h4 id="open"><a href="#open" class="headerlink" title="open()"></a>open()</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xhr.open(&apos;&apos;,url,async);</span><br></pre></td></tr></table></figure>
+<p>第一个参数是请求的方式，eg GET,POST,PUT…详见http的请求类型<br>第二个参数是请求链接，有相对路径和绝对路径（后面跨域会说最好使用绝对路径）<br>第三个参数是同步还是异步方式，false-同步，true-异步。<br>open方法起的一个启动发送请求的作用，此时还没有发送请求。要发送请求需要用send方法。</p>
+<h4 id="send"><a href="#send" class="headerlink" title="send()"></a>send()</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xhr.send(null/data);</span><br></pre></td></tr></table></figure>
+<p>send传入一个参数，null则是不需要向服务器发送数据通常可以省略，为了不出错最好写上。data则是需要向服务器发送的数据，通常是和POST方式一起使用。<br>发送完请求之后，服务器就该为此次请求返回响应，在浏览器接收到响应就会给XHR对象扩充几个属性。<br>responseText:响应主体返回的主体。<br>responseXML:如果响应内容类型是xml则会显示响应xml数据，不是则为null<br>status：响应状态码。详情见http<br>statusText：状态码的说明。<br>在发送异步请求时需要监测响应过程的活动阶段，XHR对象的readystate属性。</p>
+<h4 id="readystate"><a href="#readystate" class="headerlink" title="readystate"></a>readystate</h4><p>readystate主要分为几个值代表不同的阶段。</p>
+<ul>
+<li>0：未初始化，没有调用open方法</li>
+<li>1：启动，已经调用open但是还没有send</li>
+<li>2：发送，调用了send但是还没有接收到响应</li>
+<li>3：接收，接收到部分响应</li>
+<li>4：完成，已经接收到全部响应，可以使用了。</li>
+</ul>
+<p>通常需要对收到的数据做出一些反应则是通过readystatechange事件进行检测每次readystate变化，而我们只有在readystate为4后才可以用相关数据。所以可以这样写一些代码当响应完成获取到数据怎么用。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">xhr.onreadystatechange=function()&#123;</span><br><span class="line">    if(xhr.readystate == 4)&#123;</span><br><span class="line">        if(xhr.status == 200)&#123;</span><br><span class="line">            alert(xhr.responseText);</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            alert(xhr.status);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="abort"><a href="#abort" class="headerlink" title="abort()"></a>abort()</h4><p>abort方法主要是用于取消请求。</p>
+<p>本人在写一个ajax的时候犯了一个低级错误，而本质上还是没有意识到某个细节。一切想得有点自以为了，代码如下。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">function testajax()&#123;</span><br><span class="line">	var request = new XMLHttpRequest;</span><br><span class="line">	request.open(&apos;GET&apos;,&apos;url&apos;);</span><br><span class="line">	request.send();</span><br><span class="line">	if(request.readyState==4)&#123;</span><br><span class="line">		if(request.status == 200)&#123;</span><br><span class="line">			console.log(request);</span><br><span class="line">			var rps=request.response;</span><br><span class="line">			var obj = JSON.parse(rps);</span><br><span class="line">			console.log(obj);</span><br><span class="line">			if(data.Id==obj.ResponseStatus.Extension.Id&amp;&amp;data.Value==obj.ResponseStatus.Extension.Value)&#123;</span><br><span class="line">				alert(obj.IsShowFloat);</span><br><span class="line">			&#125;else&#123;</span><br><span class="line">				alert(obj.ResponseStatus.Errors[0].Message);</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">			alert(&quot;响应失败状态码&quot;+request.status);</span><br><span class="line">		&#125;</span><br><span class="line">&#125;;</span><br><span class="line">testajax();</span><br></pre></td></tr></table></figure></p>
+<p>这段代码在大致看来可能会觉得是对的，在控制台调试的时候并不能打印出request的相关信息。但是把console 放在if 外面又能够打印出。这就说明在函数执行的时候根本没有进入到if代码块去，其实这段代码的错误就是没有添加readystatechange的事件处理程序，没有监测到readystate的变化。所以进不去if。需要把整个if代码块放在readystatechange的事件处理程序里面就是对的了。<br>本文也主要是记录下自己踩的坑，如有没讲对的地方望指出。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> javascript </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> javascript </tag>
+            
+            <tag> ajax </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[关于hexo的SEO优化]]></title>
+      <url>http://yomark.club/%E5%85%B3%E4%BA%8Ehexo%E7%9A%84SEO%E4%BC%98%E5%8C%96/</url>
+      <content type="html"><![CDATA[<p>搞了两天的博客从初建到考虑优化问题。由于本人是前端初涉者，所以对优化方面考虑比较多，网站的访问速度低了无疑是影响了用户体验。当然自己创建了博客就必然想让更多的人看见访问你的网站。所以优化变得更为重要。本文主要讲SEO优化方面，访问速度方面优化以后再讲。<br>hexo的优化主要是百度收录和谷歌收录。这里就讲一讲怎么做。</p>
+<h3 id="谷歌收录"><a href="#谷歌收录" class="headerlink" title="谷歌收录"></a>谷歌收录</h3><p>做谷歌收录很简单而且收录的速度也很快，差不多第二天就能搜到网站了。<br>1.安装sitemap,在这里把百度的sitemap一起install了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save</span><br><span class="line">npm install hexo-generator-baidu-sitemap --save</span><br></pre></td></tr></table></figure></p>
+<p>在站点的config_yml文件中加入，这两行是在自动生成sitemap文件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sitemap</span><br><span class="line">  path: sitemap.xml</span><br><span class="line">baidusitemap:</span><br><span class="line">  path: baidusitemap.xml</span><br></pre></td></tr></table></figure></p>
+<p>注意这里加入之后要把站点config里面的url设置为自己的站点，不然hexo g之后生成的都是yoursite.com/sitemap.xml。这是我踩的坑之一。每次hexo g 之后 sitemap文件就变回原样。（这里对后面的设置站点工具有很大的作用）。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># URL</span><br><span class="line">## If your site is put in a subdirectory, set url as &apos;http://yoursite.com/child&apos; and root as &apos;/child/&apos;</span><br><span class="line">url: https://leihoyoa.top/</span><br></pre></td></tr></table></figure></p>
+<h4 id="注册google-search-console"><a href="#注册google-search-console" class="headerlink" title="注册google search console"></a>注册google search console</h4><p>网站：<a href="https://www.google.com/webmasters/" target="_blank" rel="noopener">search console</a></p>
+<p>添加自己的站点，验证的坑在上一篇文章已经说过了。此步很简单，在index.html的head里面加入<meta>验证代码就行了。验证结束后打开抓取里面的站点地图添加sitemap文件并测试，一般不会有错误，有错误修改就好了。我以前的错误就是url那里没有修改。</p>
+<h4 id="添加蜘蛛协议"><a href="#添加蜘蛛协议" class="headerlink" title="添加蜘蛛协议"></a>添加蜘蛛协议</h4><p>robots.txt 放置在 \source 目录下。在谷歌站点工具里面也设置并提交。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#hexo robots.txt</span><br><span class="line">User-agent: *</span><br><span class="line">Allow: /</span><br><span class="line">Allow: /archives/</span><br><span class="line">Disallow: /vendors/</span><br><span class="line">Disallow: /js/</span><br><span class="line">Disallow: /css/</span><br><span class="line">Disallow: /fonts/</span><br><span class="line">Disallow: /vendors/</span><br><span class="line">Disallow: /fancybox/</span><br><span class="line"></span><br><span class="line">Sitemap: https://leihoyoa.top/search.xml</span><br><span class="line">Sitemap: https://leihoyoa.top/sitemap.xml</span><br><span class="line">Sitemap: https://leihoyoa.top/baidusitemap.xml</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://onklxoiqv.bkt.clouddn.com/g2.png" alt="g2"></p>
+<h4 id="设置抓取"><a href="#设置抓取" class="headerlink" title="设置抓取"></a>设置抓取</h4><p><img src="http://onklxoiqv.bkt.clouddn.com/g1.png" alt="g1"><br>设置要抓取的子页面,我的显示重定向是由于我这里的站点是http:// 我设置了https://，所以重定向了https。状态有完成，部分完成，重定向等。</p>
+<h3 id="百度收录"><a href="#百度收录" class="headerlink" title="百度收录"></a>百度收录</h3><p>百度收录跟谷歌是差不多的步骤，就是收录时间比较久，应该是一个考察期吧。</p>
+<h4 id="sitemap-方式提交"><a href="#sitemap-方式提交" class="headerlink" title="sitemap 方式提交"></a>sitemap 方式提交</h4><p>把baidusitemap.xml加入到网页抓取的链接提交栏。<br><img src="http://onklxoiqv.bkt.clouddn.com/b1.png" alt="b1"></p>
+<h4 id="自动推送"><a href="#自动推送" class="headerlink" title="自动推送"></a>自动推送</h4><p>这里的自动推送就是在主题config里面设置baidu_push。本人用的Next主题，其他主题还是采用百度提供的方式做。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">baidu_push: true</span><br></pre></td></tr></table></figure></p>
+<h4 id="主动推送"><a href="#主动推送" class="headerlink" title="主动推送"></a>主动推送</h4><p>这种推送方式网上经验很多，可以安装一个插件工具。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-baidu-url-submit --save</span><br></pre></td></tr></table></figure></p>
+<p>安装好插件后，在站点配置文件中添加以下代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">baidu_url_submit:</span><br><span class="line">  count: 3   ##最近提交的3个链接</span><br><span class="line">  host: leihoyoa.top   ##你的百度站长工具平台提交的域名</span><br><span class="line">  token: fwOrgoccmirV  ##你的密钥</span><br><span class="line">  path: baidu_urls.txt  ## 会自动生成存放最近提交的链接</span><br></pre></td></tr></table></figure></p>
+<p><strong>复制该代码的时候最好把注释删除了。</strong>我踩的坑之一。<br>在deploy加一个type：baidu_url_submitter<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">- type: git</span><br><span class="line">  repo: </span><br><span class="line">      github: </span><br><span class="line">- type: baidu_url_submitter</span><br></pre></td></tr></table></figure></p>
+<p>hexo g 一下就会生成baidu_urls.txt文件了。然后就提交了。</p>
+<h3 id="题外话"><a href="#题外话" class="headerlink" title="题外话"></a>题外话</h3><p>title优化<br>更改index.swig文件(your-hexo-site\themes\next\layout);<br>将代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% block title %&#125; &#123;&#123; config.title &#125;&#125; &#123;% endblock %&#125;</span><br></pre></td></tr></table></figure></p>
+<p>修改成：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% block title %&#125; &#123;&#123; theme.keywords &#125;&#125; - &#123;&#123; config.title &#125;&#125;&#123;&#123; theme.description &#125;&#125; &#123;% endblock %&#125;</span><br></pre></td></tr></table></figure></p>
+<p>可以做到关键词，网站描述，网站标题显示在标题里。</p>
+<p>本人第一次写博客写的不好就将看看，不明白的可以联系我。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> hexo </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> SEO </tag>
+            
+            <tag> hexo </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[日记+hexo坑]]></title>
+      <url>http://yomark.club/%E6%97%A5%E8%AE%B0+hexo%E5%9D%91/</url>
+      <content type="html"><![CDATA[<p>搞了两天的博客快搞好，遇坑无数。到公司已经是第四周，距离上次做事已经闲了两周了。无聊的学习也无法集中，搞博客也是干无聊的事。接下来就谈谈博客的一些坑吧。<br>先谈谈<strong>YML</strong>的坑。部署博客主要就是要修改config.yml 其中值得注意的就是在<strong>冒号后面要有一个空格</strong>，还有就是一个属性有几个对象而下面写的对象不能顶格写。推荐一个在线检查语法工具YMLlint。这个和主题的配置文件有错误hexo g 都会出错。若果提交出错最好检查配置文件的语法问题。新手问题！！！<br>再有就是配置主题就不说怎么配置了，谷歌百度一大堆教程，简单点就是config的修改。<br>遇到费时很久的坑就是<strong>部署百度站点和谷歌站点验证</strong>的时候。因为第一次做，看教程也是完全按照教程步骤。</p>
+<ul>
+<li>加上meta信息验证</li>
+<li>hexo c</li>
+<li>hexo g</li>
+<li>hexo d</li>
+<li>刷新页面去站长工具点击完成验证。</li>
+</ul>
+<p>然并卵，每次一刷新meta信息就自动删除，谷歌很久都没找到是什么原因。大概还是新手，不是很懂hexo的工作。在刷知乎偶尔看见一个谈hexo g 的回答。hexo g 对于新手来说可能就是一个命令，其实这是在生成静态页面，而hexo c 我一命令就出现错误 没有该命令。谷歌挺久发现应该是hexo clean。当你在index.html中加入meta并保存后，你再clean ，g 就是重新生成的index 和相关文件。g一次都是重新生成，你以前的修改都不见了。所以<strong>正确的姿势</strong>应该是hexo g后再去加入 meta 然后deployer，这样就能完成验证。</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="0" height="0" src="//music.163.com/outchain/player?type=2&id=436514312&auto=1&height=66"></iframe>
+
+
+]]></content>
+      
+        <categories>
+            
+            <category> hexo,日记 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 日记 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+  
+  
+</search>

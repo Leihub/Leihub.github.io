@@ -1,0 +1,959 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="SEO,hexo,">
+
+
+
+
+
+  <link rel="alternate" href="/rss2.xml" title="leihoyoa" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.0">
+
+
+
+
+
+
+<meta name="description" content="搞了两天的博客从初建到考虑优化问题。由于本人是前端初涉者，所以对优化方面考虑比较多，网站的访问速度低了无疑是影响了用户体验。当然自己创建了博客就必然想让更多的人看见访问你的网站。所以优化变得更为重要。本文主要讲SEO优化方面，访问速度方面优化以后再讲。hexo的优化主要是百度收录和谷歌收录。这里就讲一讲怎么做。 谷歌收录做谷歌收录很简单而且收录的速度也很快，差不多第二天就能搜到网站了。1.安装si">
+<meta name="keywords" content="SEO,hexo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于hexo的SEO优化">
+<meta property="og:url" content="http://yomark.club/关于hexo的SEO优化/index.html">
+<meta property="og:site_name" content="leihoyoa">
+<meta property="og:description" content="搞了两天的博客从初建到考虑优化问题。由于本人是前端初涉者，所以对优化方面考虑比较多，网站的访问速度低了无疑是影响了用户体验。当然自己创建了博客就必然想让更多的人看见访问你的网站。所以优化变得更为重要。本文主要讲SEO优化方面，访问速度方面优化以后再讲。hexo的优化主要是百度收录和谷歌收录。这里就讲一讲怎么做。 谷歌收录做谷歌收录很简单而且收录的速度也很快，差不多第二天就能搜到网站了。1.安装si">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://onklxoiqv.bkt.clouddn.com/g2.png">
+<meta property="og:image" content="http://onklxoiqv.bkt.clouddn.com/g1.png">
+<meta property="og:image" content="http://onklxoiqv.bkt.clouddn.com/b1.png">
+<meta property="og:updated_time" content="2019-06-14T13:13:33.461Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于hexo的SEO优化">
+<meta name="twitter:description" content="搞了两天的博客从初建到考虑优化问题。由于本人是前端初涉者，所以对优化方面考虑比较多，网站的访问速度低了无疑是影响了用户体验。当然自己创建了博客就必然想让更多的人看见访问你的网站。所以优化变得更为重要。本文主要讲SEO优化方面，访问速度方面优化以后再讲。hexo的优化主要是百度收录和谷歌收录。这里就讲一讲怎么做。 谷歌收录做谷歌收录很简单而且收录的速度也很快，差不多第二天就能搜到网站了。1.安装si">
+<meta name="twitter:image" content="http://onklxoiqv.bkt.clouddn.com/g2.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yomark.club/关于hexo的SEO优化/">
+
+
+
+
+
+  <title> 关于hexo的SEO优化 | leihoyoa </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!-- <a href="https://github.com/Leihub"><img style="position: absolute; top: 100px; left: 0; border: 0;" src="https://camo.githubusercontent.com/567c3a48d796e2fc06ea80409cc9dd82bf714434/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png"></a> -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">leihoyoa</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yomark.club/关于hexo的SEO优化/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lei">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/dd.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="leihoyoa">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                关于hexo的SEO优化
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-29T16:34:26+08:00">
+                2017-03-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">hexo</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+                <span id="busuanzi_container_page_pv">
+                 &nbsp; | &nbsp; 热度&nbsp; <span id="busuanzi_value_page_pv"></span>°C
+                </span>
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/关于hexo的SEO优化/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="关于hexo的SEO优化/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/关于hexo的SEO优化/" class="leancloud_visitors" data-flag-title="关于hexo的SEO优化">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>搞了两天的博客从初建到考虑优化问题。由于本人是前端初涉者，所以对优化方面考虑比较多，网站的访问速度低了无疑是影响了用户体验。当然自己创建了博客就必然想让更多的人看见访问你的网站。所以优化变得更为重要。本文主要讲SEO优化方面，访问速度方面优化以后再讲。<br>hexo的优化主要是百度收录和谷歌收录。这里就讲一讲怎么做。</p>
+<h3 id="谷歌收录"><a href="#谷歌收录" class="headerlink" title="谷歌收录"></a>谷歌收录</h3><p>做谷歌收录很简单而且收录的速度也很快，差不多第二天就能搜到网站了。<br>1.安装sitemap,在这里把百度的sitemap一起install了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save</span><br><span class="line">npm install hexo-generator-baidu-sitemap --save</span><br></pre></td></tr></table></figure></p>
+<p>在站点的config_yml文件中加入，这两行是在自动生成sitemap文件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sitemap</span><br><span class="line">  path: sitemap.xml</span><br><span class="line">baidusitemap:</span><br><span class="line">  path: baidusitemap.xml</span><br></pre></td></tr></table></figure></p>
+<p>注意这里加入之后要把站点config里面的url设置为自己的站点，不然hexo g之后生成的都是yoursite.com/sitemap.xml。这是我踩的坑之一。每次hexo g 之后 sitemap文件就变回原样。（这里对后面的设置站点工具有很大的作用）。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># URL</span><br><span class="line">## If your site is put in a subdirectory, set url as &apos;http://yoursite.com/child&apos; and root as &apos;/child/&apos;</span><br><span class="line">url: https://leihoyoa.top/</span><br></pre></td></tr></table></figure></p>
+<h4 id="注册google-search-console"><a href="#注册google-search-console" class="headerlink" title="注册google search console"></a>注册google search console</h4><p>网站：<a href="https://www.google.com/webmasters/" target="_blank" rel="noopener">search console</a></p>
+<p>添加自己的站点，验证的坑在上一篇文章已经说过了。此步很简单，在index.html的head里面加入<meta>验证代码就行了。验证结束后打开抓取里面的站点地图添加sitemap文件并测试，一般不会有错误，有错误修改就好了。我以前的错误就是url那里没有修改。</p>
+<h4 id="添加蜘蛛协议"><a href="#添加蜘蛛协议" class="headerlink" title="添加蜘蛛协议"></a>添加蜘蛛协议</h4><p>robots.txt 放置在 \source 目录下。在谷歌站点工具里面也设置并提交。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#hexo robots.txt</span><br><span class="line">User-agent: *</span><br><span class="line">Allow: /</span><br><span class="line">Allow: /archives/</span><br><span class="line">Disallow: /vendors/</span><br><span class="line">Disallow: /js/</span><br><span class="line">Disallow: /css/</span><br><span class="line">Disallow: /fonts/</span><br><span class="line">Disallow: /vendors/</span><br><span class="line">Disallow: /fancybox/</span><br><span class="line"></span><br><span class="line">Sitemap: https://leihoyoa.top/search.xml</span><br><span class="line">Sitemap: https://leihoyoa.top/sitemap.xml</span><br><span class="line">Sitemap: https://leihoyoa.top/baidusitemap.xml</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://onklxoiqv.bkt.clouddn.com/g2.png" alt="g2"></p>
+<h4 id="设置抓取"><a href="#设置抓取" class="headerlink" title="设置抓取"></a>设置抓取</h4><p><img src="http://onklxoiqv.bkt.clouddn.com/g1.png" alt="g1"><br>设置要抓取的子页面,我的显示重定向是由于我这里的站点是http:// 我设置了https://，所以重定向了https。状态有完成，部分完成，重定向等。</p>
+<h3 id="百度收录"><a href="#百度收录" class="headerlink" title="百度收录"></a>百度收录</h3><p>百度收录跟谷歌是差不多的步骤，就是收录时间比较久，应该是一个考察期吧。</p>
+<h4 id="sitemap-方式提交"><a href="#sitemap-方式提交" class="headerlink" title="sitemap 方式提交"></a>sitemap 方式提交</h4><p>把baidusitemap.xml加入到网页抓取的链接提交栏。<br><img src="http://onklxoiqv.bkt.clouddn.com/b1.png" alt="b1"></p>
+<h4 id="自动推送"><a href="#自动推送" class="headerlink" title="自动推送"></a>自动推送</h4><p>这里的自动推送就是在主题config里面设置baidu_push。本人用的Next主题，其他主题还是采用百度提供的方式做。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">baidu_push: true</span><br></pre></td></tr></table></figure></p>
+<h4 id="主动推送"><a href="#主动推送" class="headerlink" title="主动推送"></a>主动推送</h4><p>这种推送方式网上经验很多，可以安装一个插件工具。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-baidu-url-submit --save</span><br></pre></td></tr></table></figure></p>
+<p>安装好插件后，在站点配置文件中添加以下代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">baidu_url_submit:</span><br><span class="line">  count: 3   ##最近提交的3个链接</span><br><span class="line">  host: leihoyoa.top   ##你的百度站长工具平台提交的域名</span><br><span class="line">  token: fwOrgoccmirV  ##你的密钥</span><br><span class="line">  path: baidu_urls.txt  ## 会自动生成存放最近提交的链接</span><br></pre></td></tr></table></figure></p>
+<p><strong>复制该代码的时候最好把注释删除了。</strong>我踩的坑之一。<br>在deploy加一个type：baidu_url_submitter<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">- type: git</span><br><span class="line">  repo: </span><br><span class="line">      github: </span><br><span class="line">- type: baidu_url_submitter</span><br></pre></td></tr></table></figure></p>
+<p>hexo g 一下就会生成baidu_urls.txt文件了。然后就提交了。</p>
+<h3 id="题外话"><a href="#题外话" class="headerlink" title="题外话"></a>题外话</h3><p>title优化<br>更改index.swig文件(your-hexo-site\themes\next\layout);<br>将代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% block title %&#125; &#123;&#123; config.title &#125;&#125; &#123;% endblock %&#125;</span><br></pre></td></tr></table></figure></p>
+<p>修改成：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% block title %&#125; &#123;&#123; theme.keywords &#125;&#125; - &#123;&#123; config.title &#125;&#125;&#123;&#123; theme.description &#125;&#125; &#123;% endblock %&#125;</span><br></pre></td></tr></table></figure></p>
+<p>可以做到关键词，网站描述，网站标题显示在标题里。</p>
+<p>本人第一次写博客写的不好就将看看，不明白的可以联系我。</p>
+
+		
+		人的一切痛苦本质上都是对自己无能的愤怒。
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/SEO/" rel="tag"># SEO</a>
+          
+            <a href="/tags/hexo/" rel="tag"># hexo</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/日记+hexo坑/" rel="next" title="日记+hexo坑">
+                <i class="fa fa-chevron-left"></i> 日记+hexo坑
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/浅谈原生js的ajax学习/" rel="prev" title="浅谈原生js的ajax学习">
+                浅谈原生js的ajax学习 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+    <div style="text-align:center;">
+ 		 <button class="btn" id="load-disqus" onclick="disqus.load();">加载 Disqus 评论</button>
+	</div>
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/dd.jpg" alt="Lei">
+          <p class="site-author-name" itemprop="name">Lei</p>
+           
+              <p class="site-description motion-element" itemprop="description">前端|hexo|技术|学习</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/rss2.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Leihub" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/leihoyoa" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#谷歌收录"><span class="nav-number">1.</span> <span class="nav-text">谷歌收录</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#注册google-search-console"><span class="nav-number">1.1.</span> <span class="nav-text">注册google search console</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加蜘蛛协议"><span class="nav-number">1.2.</span> <span class="nav-text">添加蜘蛛协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置抓取"><span class="nav-number">1.3.</span> <span class="nav-text">设置抓取</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#百度收录"><span class="nav-number">2.</span> <span class="nav-text">百度收录</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#sitemap-方式提交"><span class="nav-number">2.1.</span> <span class="nav-text">sitemap 方式提交</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自动推送"><span class="nav-number">2.2.</span> <span class="nav-text">自动推送</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#主动推送"><span class="nav-number">2.3.</span> <span class="nav-text">主动推送</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题外话"><span class="nav-number">3.</span> <span class="nav-text">题外话</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  
+  &copy; 
+  2016 -
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-flash"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Power By - Lei</span>
+</div>
+
+
+<div class="powered-by">
+  Personal Site 
+</div>
+
+<div class="theme-info">
+  Blog - Leihoyoa
+</div>
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div>
+<i class="fa fa-eye">本站总访问量</i>
+ <span id="busuanzi_value_site_pv"></span> &nbsp&nbsp |&nbsp&nbsp
+<i class="fa fa-user">您是第</i><span id="busuanzi_value_site_uv"></span>个来到的小伙伴
+</div>
+
+<script>
+var birthDay = new Date("11/20/2014");
+var now = new Date();
+var duration = now.getTime() - birthDay.getTime();
+var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
+</script>
+<span id="showDays"></span>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://leihoyoa-1.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+var disqus = {
+  load : function disqus(){
+      if(typeof DISQUS !== 'object') {
+        (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+        $('#load-disqus').html("评论加载中，请确保你有梯子，若评论长时间未加载则你可能翻墙失败...").fadeOut(9000); //加载后移除按钮
+      }
+  }
+}
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+    
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href, 
+        sourceId: "",
+        productKey: "f717d37c6e824a539d180f2536283e50",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("DRLiU9C8GpqnzEJAhBRTDVjV-gzGzoHsz", "sNPQNf9i9hvUo7t86MuqziJw");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  <!-- 背景动画 -->
+  <script type="text/javascript" src="/js/src/particle.js"></script>
+
+</body>
+</html>
